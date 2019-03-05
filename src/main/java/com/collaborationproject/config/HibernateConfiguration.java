@@ -31,14 +31,14 @@ public class HibernateConfiguration {
      
     @Bean
     public DataSource dataSource() {
-    	/*
+    	
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("org.h2.Driver");
         dataSource.setUrl(" jdbc:h2:tcp://localhost/~/eStore");
         dataSource.setUsername("root");
         dataSource.setPassword("1234");
         return dataSource;
-    */
+    
     }
      
     private Properties hibernateProperties() {
