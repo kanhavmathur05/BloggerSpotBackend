@@ -2,6 +2,8 @@ package com.collaborationproject.dao.impl;
 
 import org.hibernate.Criteria;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Criterion;
+import org.hibernate.criterion.LogicalExpression;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
@@ -63,7 +65,23 @@ public class UserDetailsDAOImpl implements UserDetailsDAO{
 
 	@Override
 	public UserDetails login(UserDetails userDetails) {
-		return null;
+		UserDetails getUserDetails;
+		try
+		{
+			Criteria cr=sessionFactory.getCurrentSession().createCriteria(UserDetails.class);
+			Criterion checkUserName=Restrictions.eq("userName", userDetails.getUserName());
+			Criterion checkPassword=Restrictions.eq("password", userDetails.getPassword());
+			LogicalExpression andExpression=Restrictions.or(checkUserName, checkPassword);
+			cr.add(andExpression);
+			getUserDetails=(UserDetails) cr.uniqueResult();
+			return getUserDetails;
+		}
+		catch(Exception ex)
+		{
+			ex.printStackTrace();
+			return null;
+		}
+
 	}
 
 }

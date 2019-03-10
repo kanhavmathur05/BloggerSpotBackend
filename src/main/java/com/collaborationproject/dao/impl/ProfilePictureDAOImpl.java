@@ -19,7 +19,7 @@ public class ProfilePictureDAOImpl implements ProfilePictureDAO{
 	public void insertOrUpdateProfilePicture(ProfilePicture profilePicture) {
 		try
 		{
-			sessionFactory.getCurrentSession().save(profilePicture);
+			sessionFactory.getCurrentSession().saveOrUpdate(profilePicture);
 		}
 		catch(Exception ex)
 		{

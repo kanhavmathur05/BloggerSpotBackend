@@ -16,7 +16,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
  
 @Configuration
 @EnableTransactionManagement
-@ComponentScan({ "com.collaborationproject" })
+@ComponentScan({"com.collaborationproject"})
 public class HibernateConfiguration {
  
     
@@ -24,7 +24,7 @@ public class HibernateConfiguration {
     public LocalSessionFactoryBean sessionFactory() {
         LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
         sessionFactory.setDataSource(dataSource());
-        sessionFactory.setPackagesToScan(new String[] { "com.collaborationproject.model" });
+        sessionFactory.setPackagesToScan(new String[] {"com.collaborationproject.model"});
         sessionFactory.setHibernateProperties(hibernateProperties());
         return sessionFactory;
      }
@@ -33,20 +33,20 @@ public class HibernateConfiguration {
     public DataSource dataSource() {
     	
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        dataSource.setDriverClassName("org.h2.Driver");
-        dataSource.setUrl(" jdbc:h2:tcp://localhost/~/eStore");
-        dataSource.setUsername("root");
-        dataSource.setPassword("1234");
+        dataSource.setDriverClassName("oracle.jdbc.driver.OracleDriver");
+        dataSource.setUrl("jdbc:oracle:thin:@localhost::XE");
+        dataSource.setUsername("collab");
+        dataSource.setPassword("password");
         return dataSource;
     
     }
      
     private Properties hibernateProperties() {
-        Properties properties = new Properties();/*
-        properties.put("hibernate.dialect","org.hibernate.dialect.H2Dialect");
+        Properties properties = new Properties();
+        properties.put("hibernate.dialect","org.hibernate.dialect.Oracle10gDialect");
         properties.put("hibernate.show_sql",true);
         properties.put("hibernate.format_sql",true);
-        properties.put("hibernate.hbm2ddl.auto", "update");*/
+        properties.put("hibernate.hbm2ddl.auto", "create");
         return properties;        
     }
      

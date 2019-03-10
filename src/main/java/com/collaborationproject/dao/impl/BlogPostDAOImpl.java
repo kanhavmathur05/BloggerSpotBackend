@@ -22,7 +22,7 @@ public class BlogPostDAOImpl implements BlogPostDAO{
 	@Override
 	public void insertOrUpdateBlogPost(BlogPost blogPost) {
 		try {
-			sessionFactory.getCurrentSession().save(blogPost);
+			sessionFactory.getCurrentSession().saveOrUpdate(blogPost);
 		}
 		catch(Exception ex)
 		{

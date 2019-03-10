@@ -73,8 +73,8 @@ public class UserDetails {
 	public boolean isOnlineStatus() {
 		return onlineStatus;
 	}
-	public void setOnline_status(boolean onlineStatus) {
-		this.onlineStatus = onlineStatus;
+	public void setOnlineStatus(boolean onlineStatus) {
+		this.onlineStatus=onlineStatus;
 	}
 
 }
