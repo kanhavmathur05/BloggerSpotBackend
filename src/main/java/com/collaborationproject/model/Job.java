@@ -94,7 +94,5 @@ public class Job {
 	public void setVacancies(int vacancies) {
 		this.vacancies=vacancies;
 	}
-	
-	
 }
 	

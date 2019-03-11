@@ -6,6 +6,7 @@ import org.hibernate.Criteria;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.collaborationproject.dao.BlogPostDAO;
@@ -14,6 +15,7 @@ import com.collaborationproject.model.BlogPost;
 import com.collaborationproject.model.UserDetails;
 
 @Transactional
+@Repository
 public class BlogPostDAOImpl implements BlogPostDAO{
 
 	@Autowired

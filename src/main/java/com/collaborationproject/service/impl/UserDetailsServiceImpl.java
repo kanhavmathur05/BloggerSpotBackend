@@ -7,7 +7,7 @@ import com.collaborationproject.dao.UserDetailsDAO;
 import com.collaborationproject.model.UserDetails;
 import com.collaborationproject.service.UserDetailsService;
 
-@Service
+@Service(value="userDetailsService")
 public class UserDetailsServiceImpl implements UserDetailsService{
 
 	@Autowired

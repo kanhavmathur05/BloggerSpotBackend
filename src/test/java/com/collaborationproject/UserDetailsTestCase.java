@@ -40,7 +40,7 @@ public class UserDetailsTestCase {
 		userDetails.setOnlineStatus(false);
 		userDetails.setRole("ROLE_USER");
 		userDetails.setPassword("tompassword");
-		userDetails.setUsername("tom12");
+		userDetails.setUserName("tom12");
 		
 		userDetailsService.insertOrUpdateUserDetails(userDetails);
 	}

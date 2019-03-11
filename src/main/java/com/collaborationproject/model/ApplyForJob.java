@@ -23,13 +23,13 @@ public class ApplyForJob {
 	public int getAppliedFor() {
 		return appliedFor;
 	}
-	public void setApplied_for(int appliedFor) {
+	public void setAppliedFor(int appliedFor) {
 		this.appliedFor=appliedFor;
 	}
 	public UserDetails getAppliedBy() {
 		return appliedBy;
 	}
-	public void setApplied_by(UserDetails appliedBy) {
+	public void setAppliedBy(UserDetails appliedBy) {
 		this.appliedBy=appliedBy;
 	}
 	

@@ -7,14 +7,14 @@ import javax.persistence.Lob;
 @Entity
 public class ProfilePicture {
 	@Id
-	private String username;
+	private String userName;
 	@Lob
 	private byte[] image;
-	public String getUsername() {
-		return username;
+	public String getUserName() {
+		return userName;
 	}	
-	public void setUsername(String username) {
-		this.username=username;
+	public void setUsername(String userName) {
+		this.userName=userName;
 	}
 	public byte[] getImage() {
 		return image;

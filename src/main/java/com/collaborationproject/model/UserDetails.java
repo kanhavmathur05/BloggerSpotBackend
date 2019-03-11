@@ -4,7 +4,10 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 
+import org.springframework.stereotype.Component;
+
 @Entity
+@Component
 public class UserDetails {
 	@Id
 	private String userName; 
@@ -25,7 +28,7 @@ public class UserDetails {
 	public String getUserName() {
 		return userName;
 	}
-	public void setUsername(String userName) {
+	public void setUserName(String userName) {
 		this.userName=userName;
 	}
 	public String getFirstName() {

@@ -6,12 +6,14 @@ import org.hibernate.criterion.Criterion;
 import org.hibernate.criterion.LogicalExpression;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.collaborationproject.dao.UserDetailsDAO;
 import com.collaborationproject.model.UserDetails;
 
 @Transactional
+@Repository(value="userDetailsDAO")
 public class UserDetailsDAOImpl implements UserDetailsDAO{
 
 	@Autowired
@@ -71,7 +73,7 @@ public class UserDetailsDAOImpl implements UserDetailsDAO{
 			Criteria cr=sessionFactory.getCurrentSession().createCriteria(UserDetails.class);
 			Criterion checkUserName=Restrictions.eq("userName", userDetails.getUserName());
 			Criterion checkPassword=Restrictions.eq("password", userDetails.getPassword());
-			LogicalExpression andExpression=Restrictions.or(checkUserName, checkPassword);
+			LogicalExpression andExpression=Restrictions.and(checkUserName, checkPassword);
 			cr.add(andExpression);
 			getUserDetails=(UserDetails) cr.uniqueResult();
 			return getUserDetails;

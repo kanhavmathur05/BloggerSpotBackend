@@ -46,7 +46,7 @@ public class BlogPost {
 	public String getBlogDescription() {
 		return blogDescription;
 	}
-	public void setBlog_description(String blogDescription) {
+	public void setBlogDescription(String blogDescription) {
 		this.blogDescription=blogDescription;
 }	
 	public Date getPostedOn() {
@@ -61,6 +61,4 @@ public class BlogPost {
 	public void setPostedBy(UserDetails postedBy) {
 		this.postedBy=postedBy;
 	}
-	
-	
 }

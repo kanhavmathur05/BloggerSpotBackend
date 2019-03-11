@@ -34,7 +34,7 @@ public class HibernateConfiguration {
     	
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("oracle.jdbc.driver.OracleDriver");
-        dataSource.setUrl("jdbc:oracle:thin:@localhost::XE");
+        dataSource.setUrl("jdbc:oracle:thin:@localhost:1521:xe");
         dataSource.setUsername("collab");
         dataSource.setPassword("password");
         return dataSource;
@@ -46,7 +46,7 @@ public class HibernateConfiguration {
         properties.put("hibernate.dialect","org.hibernate.dialect.Oracle10gDialect");
         properties.put("hibernate.show_sql",true);
         properties.put("hibernate.format_sql",true);
-        properties.put("hibernate.hbm2ddl.auto", "create");
+        properties.put("hibernate.hbm2ddl.auto", "update");
         return properties;        
     }
      
