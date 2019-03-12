@@ -8,7 +8,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 
+import org.springframework.stereotype.Component;
+
 @Entity
+@Component
 public class Job {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Id

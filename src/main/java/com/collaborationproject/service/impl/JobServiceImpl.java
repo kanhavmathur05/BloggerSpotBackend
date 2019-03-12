@@ -10,7 +10,7 @@ import com.collaborationproject.model.ApplyForJob;
 import com.collaborationproject.model.Job;
 import com.collaborationproject.service.JobService;
 
-@Service
+@Service(value="jobService")
 public class JobServiceImpl implements JobService{
 
 	@Autowired

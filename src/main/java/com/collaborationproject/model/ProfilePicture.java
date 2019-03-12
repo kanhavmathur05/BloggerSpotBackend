@@ -4,7 +4,10 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 
+import org.springframework.stereotype.Component;
+
 @Entity
+@Component
 public class ProfilePicture {
 	@Id
 	private String userName;

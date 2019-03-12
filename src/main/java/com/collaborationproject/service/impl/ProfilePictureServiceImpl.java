@@ -7,7 +7,7 @@ import com.collaborationproject.dao.ProfilePictureDAO;
 import com.collaborationproject.model.ProfilePicture;
 import com.collaborationproject.service.ProfilePictureService;
 
-@Service
+@Service(value="profilePictureService")
 public class ProfilePictureServiceImpl implements ProfilePictureService{
 
 	@Autowired

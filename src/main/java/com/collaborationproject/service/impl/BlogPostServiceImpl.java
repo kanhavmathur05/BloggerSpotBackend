@@ -11,7 +11,7 @@ import com.collaborationproject.model.BlogPost;
 import com.collaborationproject.model.UserDetails;
 import com.collaborationproject.service.BlogPostService;
 
-@Service
+@Service(value="blogPostService")
 public class BlogPostServiceImpl implements BlogPostService{
 
 	@Autowired

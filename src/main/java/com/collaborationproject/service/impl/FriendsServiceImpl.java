@@ -10,7 +10,7 @@ import com.collaborationproject.model.Friends;
 import com.collaborationproject.model.UserDetails;
 import com.collaborationproject.service.FriendsService;
 
-@Service
+@Service(value="friendsService")
 public class FriendsServiceImpl implements FriendsService{
 
 	@Autowired

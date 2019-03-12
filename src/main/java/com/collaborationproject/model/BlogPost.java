@@ -10,7 +10,10 @@ import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 
+import org.springframework.stereotype.Component;
+
 @Entity
+@Component
 public class BlogPost {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Id
