@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.collaborationproject.dao.JobDAO;
 import com.collaborationproject.model.ApplyForJob;
 import com.collaborationproject.model.Job;
+import com.collaborationproject.model.UserDetails;
 import com.collaborationproject.service.JobService;
 
 @Service(value="jobService")
@@ -71,8 +72,8 @@ public class JobServiceImpl implements JobService{
 	}
 
 	@Override
-	public boolean checkIfApplied(int jobId, String userName) {
-		if(jobDAO.checkIfApplied(jobId, userName))
+	public boolean checkIfApplied(int jobId, UserDetails userDetails) {
+		if(jobDAO.checkIfApplied(jobId, userDetails)==true)
 		{
 			return true;
 		}

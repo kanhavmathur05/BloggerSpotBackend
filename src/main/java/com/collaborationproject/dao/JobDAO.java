@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.collaborationproject.model.ApplyForJob;
 import com.collaborationproject.model.Job;
+import com.collaborationproject.model.UserDetails;
 
 public interface JobDAO {
 	public void insertOrUpdateJob(Job job);
@@ -12,5 +13,5 @@ public interface JobDAO {
 	public Job getJobById(int id);
 	public List<ApplyForJob> getAllAppliedUser(int jobId);
 	public void applyForJob(ApplyForJob applyForJob);
-	public boolean checkIfApplied(int jobId,String userName);
+	public boolean checkIfApplied(int jobId,UserDetails userDetails);
 }

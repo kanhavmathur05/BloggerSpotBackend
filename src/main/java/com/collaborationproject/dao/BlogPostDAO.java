@@ -13,5 +13,5 @@ public interface BlogPostDAO {
 	List<BlogPost> getBlogPostsByUser(UserDetails user);
 	void deleteBlogPost(BlogPost blogPost);
 	void addBlogComment(BlogComment blogComment);
-	List<BlogComment> getAllBlogComment(int blogID);
+	List<BlogComment> getAllBlogComment(BlogPost blogPost);
 }

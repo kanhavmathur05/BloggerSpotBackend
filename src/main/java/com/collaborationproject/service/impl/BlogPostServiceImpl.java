@@ -80,8 +80,8 @@ public class BlogPostServiceImpl implements BlogPostService{
 	}
 
 	@Override
-	public List<BlogComment> getAllBlogComment(int blogID) {
-		List<BlogComment> allBlogComment=blogPostDAO.getAllBlogComment(blogID);
+	public List<BlogComment> getAllBlogComment(BlogPost blogPost) {
+		List<BlogComment> allBlogComment=blogPostDAO.getAllBlogComment(blogPost);
 		if(allBlogComment!=null)
 		{
 			return allBlogComment;

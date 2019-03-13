@@ -46,13 +46,13 @@ public class Job {
 	public String getJobDescription() {
 		return jobDescription;
 	}	
-	public void setJob_description(String jobDescription) {
+	public void setJobDescription(String jobDescription) {
 		this.jobDescription=jobDescription;
 	}
 	public String getSkillsRequired() {
 		return skillsRequired;
 	}
-	public void setSkills_required(String skillsRequired) {
+	public void setSkillsRequired(String skillsRequired) {
 		this.skillsRequired=skillsRequired;
 	}
 	public int getSalary() {

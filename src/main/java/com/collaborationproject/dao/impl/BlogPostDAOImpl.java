@@ -15,7 +15,7 @@ import com.collaborationproject.model.BlogPost;
 import com.collaborationproject.model.UserDetails;
 
 @Transactional
-@Repository
+@Repository(value="blogPostDAO")
 public class BlogPostDAOImpl implements BlogPostDAO{
 
 	@Autowired
@@ -104,11 +104,11 @@ public class BlogPostDAOImpl implements BlogPostDAO{
 	}
 
 	@Override
-	public List<BlogComment> getAllBlogComment(int blogID) {
+	public List<BlogComment> getAllBlogComment(BlogPost blogPost) {
 		List<BlogComment> blogComments;
 		try {
 			Criteria cr=sessionFactory.getCurrentSession().createCriteria(BlogComment.class);
-			cr.add(Restrictions.eq("blogID", blogID));
+			cr.add(Restrictions.eq("blogPost", blogPost));
 			blogComments=cr.list();
 			return blogComments;
 		}

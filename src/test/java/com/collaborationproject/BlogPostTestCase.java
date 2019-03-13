@@ -17,6 +17,7 @@ import com.collaborationproject.model.BlogComment;
 import com.collaborationproject.model.BlogPost;
 import com.collaborationproject.model.UserDetails;
 import com.collaborationproject.service.BlogPostService;
+import com.collaborationproject.service.JobService;
 import com.collaborationproject.service.UserDetailsService;
 
 public class BlogPostTestCase {
@@ -132,10 +133,12 @@ public class BlogPostTestCase {
 		blogPostService.addBlogComment(blogComment);
 	}
 	
+	@Ignore
 	@Test
 	public void getBlogCommentsTest()
 	{
-		List<BlogComment> blogComments=blogPostService.getAllBlogComment(1);
+		blogPost=blogPostService.getBlogPostById(1);
+		List<BlogComment> blogComments=blogPostService.getAllBlogComment(blogPost);
 		for(BlogComment comment:blogComments)
 		{
 			System.out.println(""+comment.getID());

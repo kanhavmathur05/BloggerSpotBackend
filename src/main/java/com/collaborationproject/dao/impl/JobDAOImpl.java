@@ -5,6 +5,8 @@ import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Criterion;
+import org.hibernate.criterion.LogicalExpression;
 import org.hibernate.criterion.Restrictions;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.collaborationproject.dao.JobDAO;
 import com.collaborationproject.model.ApplyForJob;
 import com.collaborationproject.model.Job;
+import com.collaborationproject.model.UserDetails;
 
 @Repository
 @Transactional
@@ -26,7 +29,7 @@ public class JobDAOImpl implements JobDAO{
 	public void insertOrUpdateJob(Job job) {
 		try
 		{
-			sessionFactory.getCurrentSession().save(job);
+			sessionFactory.getCurrentSession().saveOrUpdate(job);
 		}
 		catch(Exception ex)
 		{
@@ -111,8 +114,20 @@ public class JobDAOImpl implements JobDAO{
 	}
 
 	@Override
-	public boolean checkIfApplied(int jobId, String userName) {
-		return false;
+	public boolean checkIfApplied(int jobId, UserDetails userDetails) {
+		Criteria cr=sessionFactory.getCurrentSession().createCriteria(ApplyForJob.class);
+		Criterion checkForJob=Restrictions.eq("appliedFor", jobId);
+		Criterion checkForUser=Restrictions.eq("appliedBy",userDetails);
+		LogicalExpression andExpression=Restrictions.and(checkForJob, checkForUser);
+		cr.add(andExpression);
+		if((ApplyForJob) cr.uniqueResult()!=null)
+		{
+			return true;
+		}
+		else
+		{
+			return false;	
+		}
 		/*
 		Session session=sessionFactory.getCurrentSession();
 		@SuppressWarnings("unchecked")
