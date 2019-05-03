@@ -72,6 +72,8 @@ public class JobDAOImpl implements JobDAO{
 			Criteria cr=sessionFactory.getCurrentSession().createCriteria(Job.class);
 			cr.add(Restrictions.eq("id", id));
 			job=(Job) cr.uniqueResult();
+			System.out.println(""+job.getCompanyName());
+			System.out.println(""+job.getId());
 			return job;
 		}
 		catch(Exception ex)
@@ -122,10 +124,12 @@ public class JobDAOImpl implements JobDAO{
 		cr.add(andExpression);
 		if((ApplyForJob) cr.uniqueResult()!=null)
 		{
+			System.out.println("Its True");
 			return true;
 		}
 		else
 		{
+			System.out.println("Its False");
 			return false;	
 		}
 		/*

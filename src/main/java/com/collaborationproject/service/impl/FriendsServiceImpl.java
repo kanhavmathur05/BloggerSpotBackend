@@ -61,8 +61,8 @@ public class FriendsServiceImpl implements FriendsService{
 	}
 
 	@Override
-	public Friends getFriend(String toId, String fromId) {
-		Friends friend=friendsDAO.getFriend(toId, fromId);
+	public Friends getFriend(String toID, String fromID) {
+		Friends friend=friendsDAO.getFriend(toID, fromID);
 		if(friend!=null)
 		{
 			return friend;

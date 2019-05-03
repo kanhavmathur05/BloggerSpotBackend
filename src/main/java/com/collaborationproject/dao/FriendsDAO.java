@@ -10,6 +10,6 @@ public interface FriendsDAO {
 	void addOrUpdateFriend(Friends friend);
 	public List<UserDetails> getFriendRequests(String userName);
 	public List<UserDetails> getFriendsList(String userName);
-	public Friends getFriend(String toId,String fromId);
+	public Friends getFriend(String toID,String fromID);
 	public List<UserDetails> getSentRequests(String userName);
 }

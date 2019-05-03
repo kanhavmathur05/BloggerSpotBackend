@@ -82,18 +82,18 @@ public class BlogPostTestCase {
 		System.out.println(""+blogPost.getPostedOn());
 	}
 	
-	@Ignore
 	@Test
 	public void getBlogsList()
 	{
-		List<BlogPost> blogPosts=blogPostService.getBlogPosts("N");
+		List<BlogPost> blogPosts=blogPostService.getBlogPosts("A");
 		for(BlogPost post:blogPosts)
 		{
 			System.out.println(""+post.getBlogID());
-			System.out.println(""+post.getBlogTitle());
-			System.out.println(""+post.getBlogDescription());
-			System.out.println(""+post.getPostedBy());
-			System.out.println(""+post.getPostedOn());
+			System.out.println(""+post.getApproved());
+//			System.out.println(""+post.getBlogTitle());
+	//		System.out.println(""+post.getBlogDescription());
+		//	System.out.println(""+post.getPostedBy());
+			//System.out.println(""+post.getPostedOn());
 		}
 	}
 	

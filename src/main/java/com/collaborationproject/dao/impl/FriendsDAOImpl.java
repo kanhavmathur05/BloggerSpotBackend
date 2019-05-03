@@ -56,7 +56,7 @@ public class FriendsDAOImpl implements FriendsDAO
 	@Override
 	public List<UserDetails> getFriendRequests(String userName) {
 		Session session=sessionFactory.getCurrentSession();
-		String queryString="select * from UserDetails where username in (select fromId from Friends where toId=? and status='P')";
+		String queryString="select * from UserDetails where userName in (select fromID from Friends where toID=? and status='P')";
 		SQLQuery<UserDetails> query=session.createSQLQuery(queryString);
 		query.addEntity(UserDetails.class);
 		query.setString(0, userName);
@@ -66,7 +66,7 @@ public class FriendsDAOImpl implements FriendsDAO
 	@Override
 	public List<UserDetails> getFriendsList(String userName) {
 		Session session=sessionFactory.getCurrentSession();
-		String queryString="select * from UserDetails where username in (select fromId from Friends where toId=? and status='A' union select toId from Friends where fromId=? and status='A')";
+		String queryString="select * from UserDetails where usernName in (select fromID from Friends where toID=? and status='A' union select toID from Friends where fromID=? and status='A')";
 		SQLQuery<UserDetails> query=session.createSQLQuery(queryString);
 		query.addEntity(UserDetails.class);
 		query.setString(0, userName);
@@ -75,18 +75,18 @@ public class FriendsDAOImpl implements FriendsDAO
 	}
 
 	@Override
-	public Friends getFriend(String toId, String fromId) {
+	public Friends getFriend(String toID, String fromID) {
 		Session session=sessionFactory.getCurrentSession();
-		Query<Friends> query=session.createQuery("from Friends where toId=:toId and fromId=:fromId");
-		query.setParameter("toId",toId);
-		query.setParameter("fromId",fromId);
+		Query<Friends> query=session.createQuery("from Friends where toID=:toID and fromId=:fromID");
+		query.setParameter("toId",toID);
+		query.setParameter("fromId",fromID);
 		return query.uniqueResult();
 	}
 
 	@Override
 	public List<UserDetails> getSentRequests(String userName) {
 		Session session=sessionFactory.getCurrentSession();
-		String queryString="select * from UserDetails where username in (select toId from Friends where fromId=? and status='P')";
+		String queryString="select * from UserDetails where userName in (select toID from Friends where fromID=? and status='P')";
 		SQLQuery<UserDetails> query=session.createSQLQuery(queryString);
 		query.addEntity(UserDetails.class);
 		query.setString(0, userName);

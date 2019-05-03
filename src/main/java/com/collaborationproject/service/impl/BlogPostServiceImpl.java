@@ -17,14 +17,16 @@ public class BlogPostServiceImpl implements BlogPostService{
 	@Autowired
 	BlogPostDAO blogPostDAO;
 	
-	public void insertOrUpdateBlogPost(BlogPost blogPost) {
+	public BlogPost insertOrUpdateBlogPost(BlogPost blogPost) {
 		try
 		{
 			blogPostDAO.insertOrUpdateBlogPost(blogPost);
+			return blogPost;
 		}
 		catch(Exception ex)
 		{
 			ex.printStackTrace();
+			return null;
 		}
 		
 		

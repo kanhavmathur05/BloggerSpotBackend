@@ -22,13 +22,15 @@ public class BlogPostDAOImpl implements BlogPostDAO{
 	SessionFactory sessionFactory;
 	
 	@Override
-	public void insertOrUpdateBlogPost(BlogPost blogPost) {
+	public BlogPost insertOrUpdateBlogPost(BlogPost blogPost) {
 		try {
 			sessionFactory.getCurrentSession().saveOrUpdate(blogPost);
+			return blogPost;
 		}
 		catch(Exception ex)
 		{
 			ex.printStackTrace();
+			return null;
 		}
 		
 	}
@@ -37,7 +39,28 @@ public class BlogPostDAOImpl implements BlogPostDAO{
 	public List<BlogPost> getBlogPosts(String approved) {
 		List<BlogPost> blogPostsList;
 		try {
-			blogPostsList=sessionFactory.getCurrentSession().createQuery("from BlogPost").list();
+			System.out.println("Value of approved in backend::::"+approved);
+			if(approved.equals("A"))
+			{
+				Criteria cr=sessionFactory.getCurrentSession().createCriteria(BlogPost.class);
+				cr.add(Restrictions.eq("approved", approved));
+				blogPostsList=cr.list();
+				System.out.println("DAO IMPL List Returns:::::");
+				for(BlogPost listElement:blogPostsList)
+				{
+					System.out.println(""+listElement.getApproved());
+				}
+//				blogPostsList=sessionFactory.getCurrentSession().createQuery("from BlogPost").list();
+			}
+			else
+			{
+				blogPostsList=sessionFactory.getCurrentSession().createQuery("from BlogPost").list();
+				System.out.println("DAO IMPL List Returns:::::");
+				for(BlogPost listElement:blogPostsList)
+				{
+					System.out.println(""+listElement.getApproved());
+				}
+			}
 			return blogPostsList;	
 		}
 		catch(Exception ex)
